@@ -22,6 +22,7 @@ response = HTTParty.get('http://api.openweathermap.org/data/2.5/forecast/daily?q
     @lists.humidity=list["humidity"]
     @lists.pressure=list["pressure"]
     @temp= Temp.new
+    @temp.dt=list["dt"]
      @temp.day= list["day"]
      @temp.min=list["temp"]["min"]
      @temp.max= list["temp"]["max"]

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   #get 'welcome/index'
   
-  root "welcome#index"
+  root "forecasts#new"
   get "about" => "welcome#about", as: :about
   get "blog" => "welcome#blog", as: :blog
   
