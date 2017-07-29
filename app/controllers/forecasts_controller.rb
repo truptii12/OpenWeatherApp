@@ -9,7 +9,8 @@ class ForecastsController < ApplicationController
 
   # GET /forecasts/1
   # GET /forecasts/1.json
-def show       
+def show 
+  @forecast.initial_setup
   @forecast.weather = @forecast.get_weather
   
   

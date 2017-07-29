@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   resources :temps
 
-  resources :lists
+  resources :lists do 
+  resources :temps
+  resources :weathers
+  end
 
   resources :cities
 
@@ -18,6 +21,38 @@ Rails.application.routes.draw do
   root "forecasts#new"
   get "about" => "welcome#about", as: :about
   get "blog" => "welcome#blog", as: :blog
+  
+  controller :temps do
+  get 'temps/show/:id'     => :show
+  get 'temps/delete'   => :new
+  get 'temps/edit/:id' => :edit
+  get 'temps/delete'   => :index
+  post 'temps/show'     => :show
+  post 'temps/delete'   => :new
+  post 'temps/edit/:id' => :edit
+  post 'temps/delete'   => :index
+end
+
+ controller :weathers do
+  get 'weathers/show/:id'     => :show
+  get 'weathers/delete'   => :new
+  get 'weathers/edit/:id' => :edit
+  get 'weathers/delete'   => :index
+  post 'weathers/show'     => :show
+  post 'weathers/delete'   => :new
+  post 'weathers/edit/:id' => :edit
+  post 'weathers/delete'   => :index
+end
+controller :lists do
+  get 'lists/show/:id' => :show
+  get 'lists/delete'   => :new
+  get 'lists/edit/:id' => :edit
+  get 'lists/delete'   => :index
+  post 'lists/show'     => :show
+  post 'lists/delete'   => :new
+  post 'lists/edit/:id' => :edit
+  post 'lists/delete'   => :index
+end
   
   
    # the :provider variable allows us to support different providers
